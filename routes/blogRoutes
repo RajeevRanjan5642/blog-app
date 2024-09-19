@@ -1,0 +1,12 @@
+const express = require("express");
+const routeController = require("./../controllers/routeController");
+const router = express.Router();
+//blog routes
+router.route("/").get(routeController.getBlogs).post(routeController.postBlog);
+
+router
+  .route("/:id")
+  .get(routeController.getBlog)
+  .delete(routeController.deleteBlog);
+
+module.exports = router;
